@@ -25,7 +25,19 @@ from copy import copy, deepcopy
 # Replace the pass statement with your implementation.
 
 class ParentClass:
-    pass
+    fuel_type = "unleaded"
+
+    def __init__(self, make: str, model: str, color: str):
+        self.make = make
+        self.model = model
+        self.color = color
+
+    def get_info(self):
+        return f"Fuel Type: {self.fuel_type}\nMake: {self.make}\nModel: {self.model}\nColor: {self.color}\n"
+
+    def change_color(self, color: str):
+        self.color = color
+
 
 
 # TODO 2:
@@ -41,7 +53,22 @@ class ParentClass:
 # Replace the pass statement with your implementation.
 
 class ChildClass(ParentClass):
-    pass
+    wheel_count = 4
+
+    def __init__(self, make: str, model: str, color: str, type: str, engine: str):
+        super().__init__(make, model, color)
+
+        self.type = type
+        self.engine = engine
+
+    def honk(self):
+        print("Honk! Honk!")
+
+    def get_info(self):
+        inharited_info = super().get_info()
+
+        return inharited_info + f"Wheel Count: {self.wheel_count}\nType: {self.type}\nEngine: {self.engine}\n"
+
 
 
 # TODO 3:
@@ -58,6 +85,27 @@ class ChildClass(ParentClass):
 def demonstrate_namespaces():
     print("\n=== Namespace Demonstration ===")
     print("TODO: Implement namespace demonstration")
+
+    # Creating 2 objects
+    car1 = ChildClass("Toyota", "Camry", "Red", "Sedan", "V6")
+    truck1 = ChildClass("Toyota", "Tundra", "Black", "Truck", "V8")
+
+    # Access class variable through class
+    print(f"Class variable via the class: Wheel Count = {ChildClass.wheel_count}")
+
+    # Access class variable through object
+    print(f"Class variable via the object: Wheel Count = {car1.wheel_count}")
+
+    # Add an attribute
+    truck1.has_4_wheel_drive = True
+
+    # Display object namespace
+    print(f"Car1:\n{car1.__dict__}")
+    print(f"Truck1:\n{truck1.__dict__}")
+
+    # Display class namespace
+    print(f"Child Class:\n{ChildClass.__dict__}")
+    print(f"Parent Class:\n{ParentClass.__dict__}")
 
 
 # TODO 4:
@@ -95,6 +143,14 @@ def main():
 
     demonstrate_namespaces()
     demonstrate_copying()
+
+    p1 = ParentClass("Toyota", "Tundra", "Orange")
+
+    c1 = ChildClass("Toyota", "Camry", "Red", "Sedan", "V6")
+
+    print(p1.get_info())
+
+    print(c1.get_info())
 
 
 if __name__ == "__main__":
