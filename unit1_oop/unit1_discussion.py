@@ -27,13 +27,14 @@ from copy import copy, deepcopy
 class ParentClass:
     fuel_type = "unleaded"
 
-    def __init__(self, make: str, model: str, color: str):
+    def __init__(self, make: str, model: str, color: str, features: list):
         self.make = make
         self.model = model
         self.color = color
+        self.features = features
 
     def get_info(self):
-        return f"Fuel Type: {self.fuel_type}\nMake: {self.make}\nModel: {self.model}\nColor: {self.color}\n"
+        return f"Fuel Type: {self.fuel_type}\nMake: {self.make}\nModel: {self.model}\nColor: {self.color}\nFeatures: {', '.join(self.features)}\n"
 
     def change_color(self, color: str):
         self.color = color
@@ -55,8 +56,8 @@ class ParentClass:
 class ChildClass(ParentClass):
     wheel_count = 4
 
-    def __init__(self, make: str, model: str, color: str, type: str, engine: str):
-        super().__init__(make, model, color)
+    def __init__(self, make: str, model: str, color: str, features: list, type: str, engine: str):
+        super().__init__(make, model, color, features)
 
         self.type = type
         self.engine = engine
@@ -87,8 +88,8 @@ def demonstrate_namespaces():
     print("TODO: Implement namespace demonstration")
 
     # Creating 2 objects
-    car1 = ChildClass("Toyota", "Camry", "Red", "Sedan", "V6")
-    truck1 = ChildClass("Toyota", "Tundra", "Black", "Truck", "V8")
+    car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
+    truck1 = ChildClass("Toyota", "Tundra", "Black", ["Heated Seats, A/C"], "Truck", "V8")
 
     # Access class variable through class
     print(f"Class variable via the class: Wheel Count = {ChildClass.wheel_count}")
@@ -123,6 +124,20 @@ def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
     print("TODO: Implement shallow copy and deep copy demonstration")
 
+    car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
+
+    shallow_car = copy(car1)
+
+    deep_car = deepcopy(car1)
+
+    car1.change_color("Yellow")
+
+    print(f"~~~~Original:\n{car1.get_info()}\n")
+
+    print(f"~~~~Shallow copy:\n{shallow_car.get_info()}\n")
+
+    print(f"~~~~Deep Copy:\n{deep_car.get_info()}\n")
+
 
 # TODO 5:
 # Complete the main function.
@@ -144,9 +159,9 @@ def main():
     demonstrate_namespaces()
     demonstrate_copying()
 
-    p1 = ParentClass("Toyota", "Tundra", "Orange")
+    p1 = ParentClass("Toyota", "Tundra", "Orange",["Heated Seats, A/C"])
 
-    c1 = ChildClass("Toyota", "Camry", "Red", "Sedan", "V6")
+    c1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"],"Sedan", "V6")
 
     print(p1.get_info())
 
