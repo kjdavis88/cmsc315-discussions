@@ -24,7 +24,7 @@ from copy import copy, deepcopy
 #
 # Replace the pass statement with your implementation.
 
-class ParentClass:
+class VehicleClass:
     fuel_type = "unleaded"
 
     def __init__(self, make: str, model: str, color: str, features: list):
@@ -53,7 +53,7 @@ class ParentClass:
 #
 # Replace the pass statement with your implementation.
 
-class ChildClass(ParentClass):
+class CarClass(VehicleClass):
     wheel_count = 4
 
     def __init__(self, make: str, model: str, color: str, features: list, type: str, engine: str):
@@ -88,25 +88,25 @@ def demonstrate_namespaces():
     #print("TODO: Implement namespace demonstration")
 
     # Creating 2 objects
-    car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
-    truck1 = ChildClass("Toyota", "Tundra", "Black", ["Heated Seats, A/C"], "Truck", "V8")
+    car1 = CarClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
+    car2 = CarClass("Jeep", "Wrangler", "Black", ["Heated Seats, A/C"], "SUV", "V6")
 
     # Access class variable through class
-    print(f"Class variable via the class: Wheel Count = {ChildClass.wheel_count}")
+    print(f"Class variable via the class: Wheel Count = {CarClass.wheel_count}")
 
     # Access class variable through object
     print(f"Class variable via the object: Wheel Count = {car1.wheel_count}")
 
     # Add an attribute
-    truck1.has_4_wheel_drive = True
+    car2.has_4_wheel_drive = True
 
     # Display object namespace
     print(f"Car1:\n{car1.__dict__}")
-    print(f"Truck1:\n{truck1.__dict__}")
+    print(f"Car2:\n{car2.__dict__}")
 
     # Display class namespace
-    print(f"Child Class:\n{ChildClass.__dict__}")
-    print(f"Parent Class:\n{ParentClass.__dict__}")
+    print(f"Child Class:\n{CarClass.__dict__}")
+    print(f"Parent Class:\n{VehicleClass.__dict__}")
 
 
 # TODO 4:
@@ -125,7 +125,7 @@ def demonstrate_copying():
     #print("TODO: Implement shallow copy and deep copy demonstration")
 
     # Creates an original object.
-    car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
+    car1 = CarClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
 
     # Creates a shallow copy.
     shallow_car = copy(car1)
@@ -164,9 +164,9 @@ def main():
 
     #print("\nTODO: Create and test your child object")
 
-    parent1 = ParentClass("Toyota", "Tundra", "Orange",["Heated Seats, A/C"])
+    parent1 = VehicleClass("Jeep", "Wrangler", "Orange",["Heated Seats, A/C"])
 
-    child1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"],"Sedan", "V6")
+    child1 = CarClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"],"Sedan", "V6")
 
     print(parent1.get_info())
 
