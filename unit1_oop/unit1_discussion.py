@@ -85,7 +85,7 @@ class ChildClass(ParentClass):
 
 def demonstrate_namespaces():
     print("\n=== Namespace Demonstration ===")
-    print("TODO: Implement namespace demonstration")
+    #print("TODO: Implement namespace demonstration")
 
     # Creating 2 objects
     car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
@@ -122,20 +122,28 @@ def demonstrate_namespaces():
 
 def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
-    print("TODO: Implement shallow copy and deep copy demonstration")
+    #print("TODO: Implement shallow copy and deep copy demonstration")
 
+    # Creates an original object.
     car1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"], "Sedan", "V6")
 
+    # Creates a shallow copy.
     shallow_car = copy(car1)
 
+    # Creates a deep copy.
     deep_car = deepcopy(car1)
 
-    car1.change_color("Yellow")
+    # Modifies the list in the original object to observe the differences in shallow and deep copies.
+    car1.features.append("GPS")
 
     print(f"~~~~Original:\n{car1.get_info()}\n")
 
+    # A copy of the original, but the features list is just a copy of the reference to the list.
+    # Any change to the list is reflected in both since the list is not a new copy.
     print(f"~~~~Shallow copy:\n{shallow_car.get_info()}\n")
 
+    # A complete new copy of everything from the original. Any changes to the list will not reflect on both.
+    # The list in the deep copy is a separate list in memory.
     print(f"~~~~Deep Copy:\n{deep_car.get_info()}\n")
 
 
@@ -152,20 +160,21 @@ def demonstrate_copying():
 def main():
     print("=== Unit 1 OOP Assignment ===")
 
-    print("\nTODO: Create and test your parent object")
+    #print("\nTODO: Create and test your parent object")
 
-    print("\nTODO: Create and test your child object")
+    #print("\nTODO: Create and test your child object")
+
+    parent1 = ParentClass("Toyota", "Tundra", "Orange",["Heated Seats, A/C"])
+
+    child1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"],"Sedan", "V6")
+
+    print(parent1.get_info())
+
+    print(child1.get_info())
 
     demonstrate_namespaces()
+
     demonstrate_copying()
-
-    p1 = ParentClass("Toyota", "Tundra", "Orange",["Heated Seats, A/C"])
-
-    c1 = ChildClass("Toyota", "Camry", "Red", ["Heated Seats, A/C"],"Sedan", "V6")
-
-    print(p1.get_info())
-
-    print(c1.get_info())
 
 
 if __name__ == "__main__":
