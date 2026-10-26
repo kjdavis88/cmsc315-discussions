@@ -88,6 +88,32 @@ def main():
     # 7. Create a stack with only one item, remove it,
     #    and verify the stack is empty afterward.
 
+    # Creates stack
+    test_stack = Stack()
+
+    # Adds items to the stack
+    for i in range(6):
+        print(f"Current top of stack: {test_stack.peek()}")
+        print(f"Pushing {i} onto stack.")
+        test_stack.push(i)
+        print(f"Top of stack after push: {test_stack.peek()}\n\n")
+
+    for i in range(len(test_stack.newStack)):
+        print(f"Current top of stack: {test_stack.peek()}")
+        print(f"Popped {test_stack.pop()} off of stack.")
+        print(f"Top of stack after pop: {test_stack.peek()}\n\n")
+
+    # Calling pop on an empty stack returns None.
+    print(f"Empty stack pop: {test_stack.pop()}\n\n")
+
+    # Calling peek on an empty stack returns None.
+    print(f"Empty stack peek: {test_stack.peek()}\n\n")
+
+    # Add and remove item from stack
+    test_stack.push(1)
+    print(f"Length of stack after push: {len(test_stack.newStack)}\n\n")
+    test_stack.pop()
+    print(f"Length of stack after pop: {len(test_stack.newStack)}\n\n")
 
 print("\n=== STACK DEMO ===")
 print("TODO: Create a Stack object, demonstrate LIFO behavior,")
