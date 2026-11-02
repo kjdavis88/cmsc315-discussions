@@ -79,7 +79,25 @@ def main():
     # 5. Use comments to explain each step in the implementation.
 
     print("\n=== INSERTION TESTS ===")
-    print("TODO: Create a list and demonstrate insertions.")
+
+    test_list = ["Red", "Blue", "Green"]
+
+    print(f"Original List: {", ".join(test_list)}")
+
+    # Insert at beginning
+    insert_at(test_list, 0, "Orange")
+
+    print(f"List After Insert At The Beginning: {", ".join(test_list)}")
+
+    # Insert in the middle
+    insert_at(test_list, int(len(test_list)/2), "Pink")
+
+    print(f"List After Insert In The Middle: {", ".join(test_list)}")
+
+    # Insert at end
+    insert_at(test_list, len(test_list), "Purple")
+
+    print(f"List After Insert At The End: {", ".join(test_list)}")
 
     # ===============================
     # TODO (Student): DELETION TESTS
