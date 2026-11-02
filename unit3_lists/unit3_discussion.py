@@ -82,22 +82,22 @@ def main():
 
     test_list = ["Red", "Blue", "Green"]
 
-    print(f"Original List: {", ".join(test_list)}")
+    print(f"Original List: {", ".join(test_list)}\n")
 
     # Insert at beginning
     insert_at(test_list, 0, "Orange")
 
-    print(f"List After Insert At The Beginning: {", ".join(test_list)}")
+    print(f"List After Insert At The Beginning: {", ".join(test_list)}\n")
 
     # Insert in the middle
     insert_at(test_list, int(len(test_list)/2), "Pink")
 
-    print(f"List After Insert In The Middle: {", ".join(test_list)}")
+    print(f"List After Insert In The Middle: {", ".join(test_list)}\n")
 
     # Insert at end
     insert_at(test_list, len(test_list), "Purple")
 
-    print(f"List After Insert At The End: {", ".join(test_list)}")
+    print(f"List After Insert At The End: {", ".join(test_list)}\n")
 
     # ===============================
     # TODO (Student): DELETION TESTS
@@ -113,7 +113,23 @@ def main():
     # 4. Use comments to clearly explain what is happening in the output.
 
     print("\n=== DELETION TESTS ===")
-    print("TODO: Demonstrate deletions from multiple positions.")
+
+    print(f"Original List: {", ".join(test_list)}\n")
+
+    # Insert at beginning
+    del_item = delete_at(test_list, 0)
+    print(f"Item Deleted: {del_item}")
+    print(f"List After Delete At The Beginning: {", ".join(test_list)}\n")
+
+    # Insert in the middle
+    del_item = delete_at(test_list, int(len(test_list)/2))
+    print(f"Item Deleted: {del_item}")
+    print(f"List After Insert In The Middle: {", ".join(test_list)}\n")
+
+    # Insert at end
+    del_item = delete_at(test_list, len(test_list)-1)
+    print(f"Item Deleted: {del_item}")
+    print(f"List After Insert At The End: {", ".join(test_list)}\n")
 
     # ===============================
     # TODO (Student): SEARCH TESTS
