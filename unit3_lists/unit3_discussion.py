@@ -22,7 +22,10 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+    try:
+        lst.insert(index, value)
+    except IndexError as e:
+        print("Index out of bounds.")
 
 
 def delete_at(lst, index):
@@ -36,7 +39,10 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+    try:
+        return lst.pop(index)
+    except IndexError as e:
+        return None
 
 
 def search_value(lst, value):
@@ -49,7 +55,10 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+    try:
+        return lst.index(value)
+    except ValueError as e:
+        return -1
 
 
 def main():
