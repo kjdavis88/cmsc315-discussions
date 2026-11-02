@@ -119,17 +119,17 @@ def main():
     # Insert at beginning
     del_item = delete_at(test_list, 0)
     print(f"Item Deleted: {del_item}")
-    print(f"List After Delete At The Beginning: {", ".join(test_list)}\n")
+    print(f"List After Delete The Beginning: {", ".join(test_list)}\n")
 
     # Insert in the middle
     del_item = delete_at(test_list, int(len(test_list)/2))
     print(f"Item Deleted: {del_item}")
-    print(f"List After Insert In The Middle: {", ".join(test_list)}\n")
+    print(f"List After Delete The Middle: {", ".join(test_list)}\n")
 
     # Insert at end
     del_item = delete_at(test_list, len(test_list)-1)
     print(f"Item Deleted: {del_item}")
-    print(f"List After Insert At The End: {", ".join(test_list)}\n")
+    print(f"List After Delete The End: {", ".join(test_list)}\n")
 
     # ===============================
     # TODO (Student): SEARCH TESTS
@@ -142,7 +142,16 @@ def main():
     # 4. Use comments to explain each step.
 
     print("\n=== SEARCH TESTS ===")
-    print("TODO: Demonstrate searching for values.")
+
+    # Search existing value
+    ret_val = search_value(test_list, "Pink")
+
+    print(f"Value Was Found At Index: {ret_val}\n")
+
+    # Search non-existing value
+    ret_val = search_value(test_list, "Rainbow")
+    if ret_val == -1:
+        print(f"Value Doesn't Exist In The List.\n")
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -158,7 +167,30 @@ def main():
     # - Use comments to explain each edge case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate at least two edge cases.")
+
+    # - Delete using an invalid index
+    ret_val = delete_at(test_list,33)
+    if ret_val == None:
+        print(f"Index is invalid.\n")
+
+    # - Search for a missing value
+    ret_val = search_value(test_list,"Aqua")
+    if ret_val == -1:
+        print(f"Value wasn't found.\n")
+
+    # - Insert into an empty list
+    empty_list = []
+    insert_at(empty_list, 2, "Fun")
+    # Insert will add the item to the 0 index of an empty list. If that is unwanted behavior, I could check the list size prior to calling insert.
+    print(f"Empty List Insert: {", ".join(empty_list)}\n")
+
+
+
+# - Delete from an empty list
+    empty_list = []
+    ret_val = delete_at(empty_list,3)
+    if ret_val == None:
+        print("Value was not found.")
 
 
 
