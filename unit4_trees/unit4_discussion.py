@@ -123,7 +123,7 @@ class BST:
 
 
 def main():
-    print("=== UNIT 4: BINARY SEARCH TREES ===")
+    print("=== UNIT 4: BINARY SEARCH TREES ===\n")
 
     # ===============================
     # BUILD A TREE
@@ -147,8 +147,7 @@ def main():
     print(f"Inserted Values: {", ".join(map(str, vals_for_inserting))}\n")
     print(f"In-Order Sorted Values: {", ".join(map(str, bst.inorder()))}\n")
 
-    print("\n=== TREE CONSTRUCTION ===")
-    print("TODO: Create a BST and insert multiple values.")
+    print("\n=== TREE CONSTRUCTION ===\n")
 
     tree = BST()
 
@@ -168,7 +167,7 @@ def main():
     #    sorted output in a BST.
 
     sorted_vals = tree.inorder()
-    print("\n=== IN-ORDER TRAVERSAL ===")
+    print("\n=== IN-ORDER TRAVERSAL ===\n")
     print(f"In-Order Traversal Results: {", ".join(map(str, sorted_vals))}\n")
 
 
@@ -181,8 +180,35 @@ def main():
     # 2. Search for at least two values that do not exist.
     # 3. Use comments to clearly explain the results.
 
-    print("\n=== SEARCH TESTS ===")
-    print("TODO: Demonstrate BST searching.")
+    print("\n=== SEARCH TESTS ===\n")
+
+    print(f"Searching Tree for 65\n")
+    first_search = tree.search(65)
+    if first_search == True:
+        print("65 Found!\n")
+    else:
+        print("65 Not Found!\n")
+
+    print(f"Searching Tree for 6\n")
+    second_search = tree.search(6)
+    if second_search == True:
+        print("6 Found!\n")
+    else:
+        print("6 Not Found!\n")
+
+    print(f"Searching Tree for 600\n")
+    third_search = tree.search(600)
+    if third_search == True:
+        print("600 Found!\n")
+    else:
+        print("600 Not Found!\n")
+
+    print(f"Searching Tree for 1\n")
+    fourth_search = tree.search(1)
+    if fourth_search == True:
+        print("1 Found!\n")
+    else:
+        print("1 Not Found!\n")
 
     # ===============================
     # TODO (Student): EDGE CASES
