@@ -225,8 +225,27 @@ def main():
     # Use comments to explain what happens and why.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain an edge case.")
 
+    edge_case_tree = BST()
+
+    print(f"Searching Tree for 3\n")
+    ret_val = edge_case_tree.search(3)
+    if ret_val == True:
+        print("3 Found!\n")
+    else:
+        print("3 Not Found!\n")
+
+    edge_case_tree.insert(6)
+
+    print(f"Searching Tree for 6\n")
+    ret_val = edge_case_tree.search(6)
+    if ret_val == True:
+        print("6 Found!\n")
+    else:
+        print("6 Not Found!\n")
+
+
+    edge_case_tree.insert(6)
 
 
 if __name__ == "__main__":
