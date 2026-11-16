@@ -26,7 +26,15 @@ def linear_search(lst, target):
     - Add comments explaining why linear search
       has O(n) time complexity.
     """
-    pass
+
+    # Iterates through each item in the list and provides the idx for that item.
+    for idx in range(len(lst)):
+        # Uses the index to compare the item to the target.
+        if lst[idx] == target:
+            # Returns the index if the target is found.
+            return idx
+
+    return -1
 
 
 def binary_search(lst, target):
