@@ -26,10 +26,23 @@ def main():
     #
     # Requirements:
     # 1. Create an empty dictionary.
+    inventory = {}
+
     # 2. Add at least 5 key-value pairs.
-    # 3. Add comments explaining how a dictionary
-    #    behaves like a hash table.
+    inventory['P123435'] = 'Apple'
+    inventory['P135678'] = 'Orange'
+    inventory['P165987'] = 'Banana'
+    inventory['P352456'] = 'Grape'
+    inventory['P574487'] = 'Kiwi'
+
+    # 3. Add comments explaining how a dictionary behaves like a hash table.
+    # A dictionary runs the keys used for the key value pairs through a hash function.
+    # Since the key is hashed and the index is determined by the key, this makes the
+    # dictionary function like a hashtable.
+
     # 4. Display the contents of the dictionary.
+    for sku, fruit in inventory.items():
+        print(f"Sku: {sku}\nFruit: {fruit}\n\n")
 
 
     print("\n=== INSERT OPERATIONS ===")
