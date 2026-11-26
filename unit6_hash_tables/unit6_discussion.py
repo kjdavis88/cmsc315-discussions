@@ -57,6 +57,16 @@ def main():
     # 2. Clearly display the lookup results.
     # 3. Add meaningful comments to explain how the lookup works.
 
+    item_1_key = 'P165987'
+    item_1 = inventory[item_1_key]
+
+    print(f"Used Key: {item_1_key} and found Item: {item_1}\n")
+
+    item_2_key = 'P135678'
+    item_2 = inventory[item_2_key]
+
+    print(f"Used Key: {item_2_key} and found Item: {item_2}\n")
+
     print("\n=== LOOKUP OPERATIONS ===")
     print("TODO: Demonstrate successful key lookups.")
 
@@ -70,6 +80,12 @@ def main():
     # 3. Use comments to explain what happens when an existing key is assigned
     #    a new value.
 
+    print(f"Inventory prior to update: {inventory}\n")
+
+    inventory['P574487'] = 'Plum'
+
+    print(f"Inventory after update: {inventory}\n")
+
     print("\n=== UPDATE OPERATIONS ===")
     print("TODO: Demonstrate updating an existing key.")
 
@@ -82,6 +98,12 @@ def main():
     # 2. Display the dictionary before and after deletion.
     # 3. Use comments to explain what happens when a key is removed.
 
+    print(f"Inventory prior to delete: {inventory}\n")
+
+    del inventory['P574487']
+
+    print(f"Inventory after delete: {inventory}\n")
+
     print("\n=== DELETE OPERATIONS ===")
     print("TODO: Demonstrate deleting a key-value pair.")
 
@@ -89,18 +111,43 @@ def main():
     # TODO (Student): EDGE CASES
     # ===============================
     #
+
+    print("\n=== EDGE CASES ===")
+    print("TODO: Demonstrate and explain edge cases.")
+
     # Demonstrate at least two edge cases.
     #
     # Example ideas:
     # - Lookup a missing key
+    # Get will return none if the key isn't present.
+    missing_key = inventory.get('P111111')
+    print(f"Get returned: {missing_key}\n")
+
     # - Delete a missing key safely
+    # If the key isn't present a KeyError is raised, so the try except catches that.
+    try:
+        del inventory['P1111111']
+    except KeyError:
+        print("Hit except because of KeyError due to key not being found.\n")
+
     # - Update a missing key
+    # Since the key isn't present, it is just added.
+    print(f"Inventory prior to update missing key: {inventory}\n")
+
+    inventory['P1111'] = 'Lemon'
+
+    print(f"Inventory after delete: {inventory}\n")
+
     # - Use an empty dictionary
+    # Get returns None when the key isn't present in the dictionary.
+    empty_dict = {}
+    ret_val = empty_dict.get('P111')
+    print(f"Get on an empty dictionary returned: {ret_val}")
+
     #
     # Explain what happens in each case.
 
-    print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
+
 
 
 
